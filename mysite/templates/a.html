@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+
+            <div class="col nav nav-justified">
+                <ul class="nav nav-tabs nav-justified">
+                    <li class="active"><a>Home</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle " data-toggle="dropdown">navigation1</a>
+                        <ul class="dropdown-menu">
+                            <li><a>algorithm1</a></li>
+                            <li><a>algorithm2</a></li>
+                            <li><a>algorithm3</a></li>
+                        </ul>
+                    </li>
+                    <li class=""><a>navigation2</a></li>
+                    <li class=""><a>navigation3</a></li>
+                    <li class=""><a>navigation4</a></li>
+                    <li class=""><a>navigation5</a></li>
+
+
+                </ul>
+            </div>
+
+
+            {% block content0 %}  {# content0 #}
+
+                <div class="row clearfix">
+                    <div class="col-md-4 column">
+
+                        {% block content1 %}
+
+                        {% endblock %}
+
+                    </div>
+                    <div class="col-md-4 column">
+
+
+                        {% block content2 %}   {# 中间 #}
+
+                        {% endblock %}
+
+                    </div>
+                    <div class="col-md-4 column">
+                        {% block content3 %}
+
+                        {% endblock %}
+                    </div>
+                </div>
+
+        {% endblock %}  {# end content0 #}
+
+		</div>
+	</div>
+</div>
+
+{%  endblock%}

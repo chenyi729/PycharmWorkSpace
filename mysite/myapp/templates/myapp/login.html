@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block title %}登录{% endblock %}
+
+{% block css %}
+    <link href="/static/css/login.css" rel="stylesheet"/>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="col-md-4 col-md-offset-4">
+            <form class="form-login" action="/login/"  method="post">
+                {% if message %}
+                    <div class="alert alert-warning">{{ message }}</div>
+                {% endif %}
+
+                {% csrf_token %}  {# 跨站请求保护机制 #}
+
+                <h2>欢迎登录</h2>
+                <div class="form-group">
+                     <label for="{{ login_form.username.id_for_label }}">
+                         {{ login_form.username.label }}
+                     </label>
+                             {{ login_form.username }}
+
+{#                    {{ login_form.username.label_tag }}#}
+{#                    {{ login_form.username }}#}
+{#                    <label for="id_loginname">用户名：</label>#}
+{#                    <input id="id_loginname" class="form-control" name="loginname" maxlength="128" required="" type="text">#}
+                </div>
+                <div class="form-group">
+                    {{ login_form.password.label_tag }}
+                    {{ login_form.password }}
+
+{#                    <label for="id_password">密码：</label>#}
+{#                    <input id="id_password" class="form-control" name="password" maxlength="256" required="" type="password">#}
+
+                </div>
+
+                <div class="form-group">
+                    {{ login_form.captcha1.errors }}
+                    {{ login_form.captcha1.label_tag }}
+                    {{ login_form.captcha1 }}
+
+{#                    <label for="id_captcha0">验证码：</label>#}
+{#                    <img class="captcha" src="/captchaimgage/053fe59039dec0fec5ce91c043c9fe71d7f91dc5.jpg" alt="captcha">#}
+{#                    <input id="id_captcha0" class="form-control" name="id_captcha0" autocapitalize="off"  autocomplete="off"#}
+{#                           required="" type="text">#}
+                </div>
+
+                <button type="reset" class="btn btn-default pull-left">重置</button>
+                <button type="submit" class="btn btn-primary pull-right">提交</button>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}
